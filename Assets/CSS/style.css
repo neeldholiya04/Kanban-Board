@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
+}
+#id{
+    color: aliceblue;
+    text-decoration: none;
 }
 
 .toolbox-cont{
@@ -10,9 +14,18 @@
     height: 6rem;
     background-color: black;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding-right: 30px;
 }
-
+.heading{
+    color: aliceblue ;
+    padding-left: 30px;
+    font-size: 30px;
+}
+.end{
+    display: flex;
+}
 .toolbox-cont-color{
     height: 3rem;
     width: 18rem;
@@ -25,19 +38,19 @@
 
 .color-1{
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
     background-color: red;
 }
 
 .color-2{
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
     background-color: orange;
 }
 
 .color-3{
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
     background-color: green;
 }
 .btn-function{
@@ -54,4 +67,44 @@
 }
 .rm-btn{
     font-size: 1.6rem;
+}
+
+.modal-cont{
+    height: 50vh;
+    width: 50vw;
+    border: none;
+    background-color: aqua;
+    display: flex;
+    position: fixed;
+    left: 25vw;
+    top: 25vh;
+    border: 5px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.textarea-cont{
+    height: 100%;
+    width: 75%;
+    background-color: rgb(202, 239, 239);
+    outline: none;
+    resize: none;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    border: 2px solid blue;
+}
+.priority-color-cont{
+    position: right;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.priorit{
+    height: 3rem;
+    width: 5rem;
+    border: 3px solid black
 }
