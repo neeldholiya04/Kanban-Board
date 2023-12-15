@@ -10,24 +10,36 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <title>Kanban Board</title>
     <link rel="stylesheet" href="Assets\CSS\style.css" />
   </head>
   <body>
     <div class="toolbox-cont">
-      <div class="toolbox-cont-color">
-        <div class="color-1"></div>
-        <div class="color-2"></div>
-        <div class="color-3"></div>
-      </div>
+      <div class="heading"><a id = "id" href="#">Kanban Board</a></div>
+      <div class="end">
+        <div class="toolbox-cont-color">
+          <div class="color-1"></div>
+          <div class="color-2"></div>
+          <div class="color-3"></div>
+        </div>
 
-      <div class="btn-function">
-        <div class="add-btn">
-          <i class="fa-solid fa-plus"></i>
+        <div class="btn-function">
+          <div class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="rm-btn">
+            <i class="fa-solid fa-trash"></i>
+          </div>
         </div>
-        <div class="rm-btn">
-          <i class="fa-solid fa-trash"></i>
-        </div>
+      </div>
+    </div>
+
+    <div class="modal-cont">
+      <textarea class="textarea-cont" placeholder="Enter your Task"></textarea>
+      <div class="priority-color-cont">
+        <div class="priorit color-1"></div>
+        <div class="priorit color-2"></div>
+        <div class="priorit color-3"></div>
       </div>
     </div>
   </body>
