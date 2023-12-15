@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.toolbox-cont{
+    width: 100vw;
+    height: 6rem;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.toolbox-cont-color{
+    height: 3rem;
+    width: 18rem;
+    background-color: aliceblue;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content:  space-evenly;
+}
+
+.color-1{
+    height: 2rem;
+    width: 3rem;
+    background-color: red;
+}
+
+.color-2{
+    height: 2rem;
+    width: 3rem;
+    background-color: orange;
+}
+
+.color-3{
+    height: 2rem;
+    width: 3rem;
+    background-color: green;
+}
