@@ -57,9 +57,10 @@
     width: 8rem;
     background-color: aliceblue;
     margin-left: 5rem;
-    display: flex;
+    display: flex;;
     align-items: center;
     justify-content:  space-evenly;
+
 }
 .add-btn{
     font-size: 1.75rem;
@@ -73,7 +74,7 @@
     width: 50vw;
     border: none;
     background-color: aqua;
-    display: flex;
+    display: none;
     position: fixed;
     left: 25vw;
     top: 25vh;
