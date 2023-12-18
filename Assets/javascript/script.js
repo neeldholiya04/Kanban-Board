@@ -18,14 +18,15 @@ textArea.addEventListener("keydown", function (e) {
   let key = e.key;
   if (key === "Enter") {
     // console.log("Generate Ticket");
-    generateTicket();
+    // console.log(textArea.value);
+    generateTicket(textArea.value);
     textArea.value = "";
     modal.style.display = "none";
     addModal = true;
   }
 });
 
-function generateTicket() {
+function generateTicket(task) {
   // <div class="ticket-cont">
   //     <div class="ticket-color r"></div>
   //     <div class="ticket-id">#eidut1</div>
@@ -33,8 +34,9 @@ function generateTicket() {
   //   </div>
   let ticketCont = document.createElement("div");
   ticketCont.className = "ticket-cont";
-  ticketCont.innerHTML =
-    '<div class="ticket-color r"></div><div class="ticket-id">#eidut1</div><div class="ticket-area">Some ticket</div>';
-    console.log(ticketCont);
-    mainCont.appendChild(ticketCont);
+  ticketCont.innerHTML = `<div class="ticket-color r"></div>
+    <div class="ticket-id">#eidut1</div>
+    <div class="ticket-area">${task}</div>`;
+  console.log(ticketCont);
+  mainCont.appendChild(ticketCont);
 }
