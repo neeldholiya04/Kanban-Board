@@ -3,8 +3,11 @@ let modal = document.querySelector(".modal-cont");
 let textArea = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let allPriorityColour = document.querySelectorAll(".priorit-color");
+let rmBtn = document.querySelector(".rm-btn");
+let ticketCont = document.querySelector(".ticket-cont");
 let addModal = true;
-let taskColor = "red";
+let taskColor = "r";
+
 
 addBtn.addEventListener("click", function () {
   if (addModal) {
@@ -33,7 +36,7 @@ textArea.addEventListener("keydown", function (e) {
   }
 });
 for (let i = 0; i < allPriorityColour.length; i++) {  
-  allPriorityColour[i].addEventListener("click", function () {
+  allPriorityColour[i].addEventListener("click", function (taskColor) {
   for (let j = 0; j < allPriorityColour.length; j++) {
     allPriorityColour[j].classList.remove("active");
   }
@@ -56,3 +59,15 @@ function generateTicket(task) {
   console.log(ticketCont);
   mainCont.appendChild(ticketCont);
 }
+
+// delete task
+rmBtn.addEventListener("click", function () {
+  let allTicket = document.querySelectorAll(".ticket-cont");
+  for (let i = 0; i<allTicket.length; i++){
+    allTicket[i].addEventListener("click", function(e){
+      e.currentTarget.remove();
+    })
+  }
+  console.log('rm-btn clicked')
+})
+
