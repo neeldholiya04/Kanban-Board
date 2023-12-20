@@ -36,7 +36,7 @@ textArea.addEventListener("keydown", function (e) {
   }
 });
 for (let i = 0; i < allPriorityColour.length; i++) {  
-  allPriorityColour[i].addEventListener("click", function (taskColor) {
+  allPriorityColour[i].addEventListener("click", function (t) {
   for (let j = 0; j < allPriorityColour.length; j++) {
     allPriorityColour[j].classList.remove("active");
   }
@@ -68,6 +68,5 @@ rmBtn.addEventListener("click", function () {
       e.currentTarget.remove();
     })
   }
-  console.log('rm-btn clicked')
 })
 
