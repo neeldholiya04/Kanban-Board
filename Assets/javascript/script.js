@@ -66,21 +66,41 @@ rmBtn.addEventListener("click", function () {
   deleteMode = !deleteMode;
   console.log(deleteMode);
 
-  if (deleteMode) {
-    console.log("Delete Mode On");
-    let allTicket = document.querySelectorAll(".ticket-cont");
-    for (let i = 0; i < allTicket.length; i++) {
-      allTicket[i].addEventListener("click", deleteTicket);
+  // if (deleteMode) {
+  //   console.log("Delete Mode On");
+  //   let allTicket = document.querySelectorAll(".ticket-cont");
+  //   for (let i = 0; i < allTicket.length; i++) {
+  //     allTicket[i].addEventListener("click", deleteTicket);
+  //   }
+  // } else {
+  //   // Remove the event listeners when delete mode is turned off
+  //   let allTicket = document.querySelectorAll(".ticket-cont");
+  //   for (let i = 0; i < allTicket.length; i++) {
+  //     allTicket[i].removeEventListener("click", deleteTicket);
+  //   }
+  // }
+
+  mainCont.addEventListener("click", function (e) {
+    if (deleteMode) {
+      console.log("Delete Mode On");
+      console.log(e);
+      if (e.target.classList.contains("ticket-cont")) {
+        e.target.remove();
+      }
+      if(e.target.classList.contains("ticket-color")){
+        e.target.parentNode.remove();
+      }
+      if(e.target.classList.contains("ticket-id")){
+        e.target.parentNode.remove();
+      }
+      if(e.target.classList.contains("ticket-area")){
+        e.target.parentNode.remove();
+      }
     }
-  } else {
-    // Remove the event listeners when delete mode is turned off
-    let allTicket = document.querySelectorAll(".ticket-cont");
-    for (let i = 0; i < allTicket.length; i++) {
-      allTicket[i].removeEventListener("click", deleteTicket);
-    }
-  }
+  });
+
 });
 
-function deleteTicket(e) {
-  e.currentTarget.remove();
-}
+// function deleteTicket(e) {
+//   e.currentTarget.remove();
+// }
