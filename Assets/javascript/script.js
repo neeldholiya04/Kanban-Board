@@ -82,6 +82,7 @@ rmBtn.addEventListener("click", function () {
 
   mainCont.addEventListener("click", function (e) {
     if (deleteMode) {
+      // rmBtn.style.color = "red";
       console.log("Delete Mode On");
       console.log(e);
       if (e.target.classList.contains("ticket-cont")) {
@@ -101,6 +102,13 @@ rmBtn.addEventListener("click", function () {
 
 });
 
-// function deleteTicket(e) {
-//   e.currentTarget.remove();
-// }
+// change colour of rmBtn when delete mode is on
+rmBtn.addEventListener("click", function () {
+  if (deleteMode) {
+    console.log("Delete Mode Red");
+    rmBtn.style.color = "red";
+  } else {
+    rmBtn.style.color = "initial";
+  }
+});
+
