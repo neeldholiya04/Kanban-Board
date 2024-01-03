@@ -66,23 +66,9 @@ rmBtn.addEventListener("click", function () {
   deleteMode = !deleteMode;
   console.log(deleteMode);
 
-  // if (deleteMode) {
-  //   console.log("Delete Mode On");
-  //   let allTicket = document.querySelectorAll(".ticket-cont");
-  //   for (let i = 0; i < allTicket.length; i++) {
-  //     allTicket[i].addEventListener("click", deleteTicket);
-  //   }
-  // } else {
-  //   // Remove the event listeners when delete mode is turned off
-  //   let allTicket = document.querySelectorAll(".ticket-cont");
-  //   for (let i = 0; i < allTicket.length; i++) {
-  //     allTicket[i].removeEventListener("click", deleteTicket);
-  //   }
-  // }
-
+// Delete Functionality added to the tickets
   mainCont.addEventListener("click", function (e) {
     if (deleteMode) {
-      // rmBtn.style.color = "red";
       console.log("Delete Mode On");
       console.log(e);
       if (e.target.classList.contains("ticket-cont")) {
