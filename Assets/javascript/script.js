@@ -48,7 +48,6 @@ for (let i = 0; i < allPriorityColour.length; i++) {
 
 var uid = new ShortUniqueId();
 
-
 function generateTicket(task) {
   // <div class="ticket-cont">
   //     <div class="ticket-color r"></div>
@@ -60,17 +59,36 @@ function generateTicket(task) {
   ticketCont.className = "ticket-cont";
   ticketCont.innerHTML = `<div class="ticket-color ${taskColor}"></div>
     <div class="ticket-id">${id}</div>
-    <div class="ticket-area">${task}</div>`;
+    <div class="ticket-area">${task}</div>
+    <div class="lock-unlock"><i class="fa-solid fa-lock"></i></div>`;
   console.log(ticketCont);
   mainCont.appendChild(ticketCont);
+
+  //handle lock unlock
+let taskArea = document.querySelector(".ticket-area");
+let lockUnlockBtn = document.querySelector(".lock-unlock i");
+lockUnlockBtn.addEventListener('click', function () {
+  if (lockUnlockBtn.classList.contains("fa-lock")) {
+    console.log("Lock");
+    lockUnlockBtn.classList.remove("fa-lock");
+    lockUnlockBtn.classList.add("fa-unlock");
+    taskArea.setAttribute("contentEditable", "true");
+  } else {
+    lockUnlockBtn.classList.remove("fa-unlock");
+    lockUnlockBtn.classList.add("fa-lock");
+    taskArea.setAttribute("contentEditable", "false");
+  }
+});
 }
+
+
 
 // delete task
 rmBtn.addEventListener("click", function () {
   deleteMode = !deleteMode;
   console.log(deleteMode);
 
-// Delete Functionality added to the tickets
+  // Delete Functionality added to the tickets
   mainCont.addEventListener("click", function (e) {
     if (deleteMode) {
       console.log("Delete Mode On");
@@ -78,18 +96,17 @@ rmBtn.addEventListener("click", function () {
       if (e.target.classList.contains("ticket-cont")) {
         e.target.remove();
       }
-      if(e.target.classList.contains("ticket-color")){
+      if (e.target.classList.contains("ticket-color")) {
         e.target.parentNode.remove();
       }
-      if(e.target.classList.contains("ticket-id")){
+      if (e.target.classList.contains("ticket-id")) {
         e.target.parentNode.remove();
       }
-      if(e.target.classList.contains("ticket-area")){
+      if (e.target.classList.contains("ticket-area")) {
         e.target.parentNode.remove();
       }
     }
   });
-
 });
 
 // change colour of rmBtn when delete mode is on
@@ -101,4 +118,3 @@ rmBtn.addEventListener("click", function () {
     rmBtn.style.color = "initial";
   }
 });
-
