@@ -46,16 +46,20 @@ for (let i = 0; i < allPriorityColour.length; i++) {
   });
 }
 
+var uid = new ShortUniqueId();
+
+
 function generateTicket(task) {
   // <div class="ticket-cont">
   //     <div class="ticket-color r"></div>
   //     <div class="ticket-id">#eidut1</div>
   //     <div class="ticket-area">Some ticket</div>
   //   </div>
+  let id = uid.rnd();
   let ticketCont = document.createElement("div");
   ticketCont.className = "ticket-cont";
   ticketCont.innerHTML = `<div class="ticket-color ${taskColor}"></div>
-    <div class="ticket-id">#eidut1</div>
+    <div class="ticket-id">${id}</div>
     <div class="ticket-area">${task}</div>`;
   console.log(ticketCont);
   mainCont.appendChild(ticketCont);
