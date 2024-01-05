@@ -1,13 +1,43 @@
+let rmBtn = document.querySelector(".rm-btn");
 let addBtn = document.querySelector(".add-btn");
 let modal = document.querySelector(".modal-cont");
 let textArea = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
 let allPriorityColour = document.querySelectorAll(".priorit-color");
-let rmBtn = document.querySelector(".rm-btn");
 let ticketCont = document.querySelector(".ticket-cont");
 let addModal = true;
 let taskColor = "r";
 let deleteMode = false;
+let colorArr = ['r','y','g'];
+let allFilterColor = document.querySelectorAll('.color');
+for(let i=0;i<allFilterColor.length;i++){
+    allFilterColor[i].addEventListener('click',function(){
+        // console.log(allFilterColor[i]);
+        let currentSelectedFilter = allFilterColor[i].classList[1];
+        console.log(currentSelectedFilter);
+        let allTicketsColor = document.querySelectorAll('.ticket-color');
+        // console.log(allTicketsColor);
+        for(let j=0;j<allTicketsColor.length;j++){
+            let colorOfTicket = allTicketsColor[j].classList[1];
+            console.log(colorOfTicket);
+            if(colorOfTicket == currentSelectedFilter){
+                //show it
+                allTicketsColor[j].parentElement.style.display = 'block';
+            }else{
+                //hide it
+                allTicketsColor[j].parentElement.style.display = 'none';
+            }
+        }
+    })
+
+    allFilterColor[i].addEventListener('dblclick',function(){
+        let allTicketsColor = document.querySelectorAll('.ticket-color');
+        for(let j=0;j<allTicketsColor.length;j++){
+            allTicketsColor[j].parentElement.style.display = 'block';
+        }
+    })
+}
+
 
 addBtn.addEventListener("click", function () {
   if (addModal) {
@@ -17,6 +47,8 @@ addBtn.addEventListener("click", function () {
   }
   addModal = !addModal;
 });
+
+
 
 textArea.addEventListener("keydown", function (e) {
   // console.log(e);
@@ -63,6 +95,27 @@ function generateTicket(task) {
     <div class="lock-unlock"><i class="fa-solid fa-lock"></i></div>`;
   console.log(ticketCont);
   mainCont.appendChild(ticketCont);
+
+      //handle priority color
+      let ticketColor = ticketCont.querySelector('.ticket-color');
+      ticketColor.addEventListener('click',function(){
+          // console.log("priority Color is clicked")
+          // console.log(ticketColor);
+          let currentColor = ticketColor.classList[1];
+          console.log(currentColor);
+          ticketColor.classList.remove(currentColor);
+          let currentColorIndex;
+          for(let i=0;i<colorArr.length;i++){
+              if(colorArr[i] == currentColor){
+                  currentColorIndex = i;
+                  break;
+              }
+          }
+          let nextColorIndex = (currentColorIndex+1)%colorArr.length;
+          let nextColor = colorArr[nextColorIndex];
+          console.log(nextColor);
+          ticketColor.classList.add(nextColor)
+      })
 
   //handle lock unlock
 let taskArea = document.querySelector(".ticket-area");
@@ -118,3 +171,5 @@ rmBtn.addEventListener("click", function () {
     rmBtn.style.color = "initial";
   }
 });
+
+
